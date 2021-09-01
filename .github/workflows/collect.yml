@@ -1,0 +1,27 @@
+name: collect
+
+on:
+  workflow_dispatch
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: issue-tracked
+      - name: write
+        uses: piyoppi/actions-jsons-to-csv@5ee20fbb3c6fc00e3857f78767e21e2c133fa8b4
+        with:
+          directory: issue-tracked
+          output_filename: output.csv
+          mapping: '[["issue.number", "Issue"], ["issue.createdAt", "CreatedAt"], ["issue.closedAt", "ClosedAt"]]'
+      - name: commit
+        shell: bash
+        run: |
+          git config --global user.email "bot@garakuta-toolbox.com"
+          git config --global user.name "piyoppi-bot"
+          git add .
+          git commit -m "Update output.csv"
+          git push origin $branch
