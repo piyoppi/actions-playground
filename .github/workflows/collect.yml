@@ -16,7 +16,7 @@ jobs:
         with:
           directory: issue-tracked
           output_filename: output.csv
-          mapping: '[["issue.number", "Issue"], ["issue.createdAt", "CreatedAt"], ["issue.closedAt", "ClosedAt"]]'
+          mapping: '[["issue.number", "Issue"], ["issue.title", "Title"], ["issue.createdAt", "CreatedAt"], ["issue.closedAt", "ClosedAt"], ["projectStateDurations.TODO.durationMinute", "TODO"], ["projectStateDurations.Doing.durationMinute", "Doing"]]'
       - name: commit
         shell: bash
         run: |
