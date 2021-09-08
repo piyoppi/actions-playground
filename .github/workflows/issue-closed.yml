@@ -4,6 +4,11 @@ on:
   issues:
     types:
       - closed
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue number'
+        required: true
 
 jobs:
   closed:
@@ -13,11 +18,12 @@ jobs:
         uses: actions/checkout@v2
       - name: Report
         id: report
-        uses: piyoppi/actions-labeled-duration@e3e3d7f3a548afcbfe35370d75dec7342b5824ea
+        uses: piyoppi/actions-labeled-duration@c857fd8507114c23c843e20b7dffc822500c1bce
         with:
           labels: label1,label2,ラベルA
           project_columns: TODO,Doing
           issue_comment: '⌛このIssueの作業にかかった時間は以下の通りです'
+          issue_number: github.event.inputs.issue_number
       - name: echo
         shell: bash
         env:
