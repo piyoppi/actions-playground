@@ -23,7 +23,7 @@ jobs:
           labels: label1,label2,ラベルA
           project_columns: TODO,Doing
           issue_comment: '⌛このIssueの作業にかかった時間は以下の通りです'
-          issue_number: github.event.inputs.issue_number
+          issue_number: ${{ github.event.inputs.issue_number }}
       - name: echo
         shell: bash
         env:
