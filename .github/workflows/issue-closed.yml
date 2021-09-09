@@ -20,7 +20,7 @@ jobs:
         id: report
         uses: piyoppi/actions-labeled-duration@cc59fe06e7f8ce93dff689efc1bdc87ae29e28ac
         with:
-          labels: label1,label2,ラベルA
+          # labels: label1,label2,ラベルA
           project_columns: TODO,Doing
           issue_comment: '⌛このIssueの作業にかかった時間は以下の通りです'
           issue_number: ${{ github.event.inputs.issue_number }}
