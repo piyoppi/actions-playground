@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Report
         id: report
-        uses: piyoppi/actions-labeled-duration@abf85a23b076409eb646c7319d72c3a9e7167e27
+        uses: piyoppi/actions-labeled-duration@v1
         with:
           labels: label1,label2,ラベルA
           project_columns: TODO,Doing
